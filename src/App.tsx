@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 import Form from "./components/Form";
 import TodoList from "./components/TodoList";
 import { Todo } from "./types/TodoType";
-import "./styles/App.css";
 
 const App = () => {
   const todos = useSelector((state) => state.todos.value) as Todo[];
@@ -13,10 +12,10 @@ const App = () => {
   }, [todos]);
 
   return (
-    <main>
+    <>
       <TodoList />
       <Form />
-    </main>
+    </>
   );
 };
 

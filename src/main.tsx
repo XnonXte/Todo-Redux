@@ -4,6 +4,8 @@ import App from "./App.tsx";
 import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
 import todosSlice from "./features/todos";
+import "./main.css";
+import "./fonts.css"
 
 const store = configureStore({
   reducer: {
