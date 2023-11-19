@@ -4,8 +4,11 @@ import App from "./App.tsx";
 import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
 import todosSlice from "./features/todos";
-import "./main.css";
-import "./fonts.css"
+import "./styles/main.css";
+import "bootstrap-icons/font/bootstrap-icons.min.css";
+
+// ! development only.
+// import "./styles/breakpoints.css";
 
 const store = configureStore({
   reducer: {

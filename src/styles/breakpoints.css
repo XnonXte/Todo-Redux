@@ -1,0 +1,42 @@
+/* Apply styles for small screens (sm) */
+@media screen and (min-width: 640px) {
+  body::before {
+    content: "Current Breakpoint: Small (sm)";
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #000;
+    color: #fff;
+    padding: 10px;
+    z-index: 1000;
+  }
+}
+
+/* Apply styles for medium screens (md) */
+@media screen and (min-width: 768px) {
+  body::before {
+    content: "Current Breakpoint: Medium (md)";
+  }
+}
+
+/* Apply styles for large screens (lg) */
+@media screen and (min-width: 1024px) {
+  body::before {
+    content: "Current Breakpoint: Large (lg)";
+  }
+}
+
+/* Apply styles for extra-large screens (xl) */
+@media screen and (min-width: 1280px) {
+  body::before {
+    content: "Current Breakpoint: Extra Large (xl)";
+  }
+}
+
+/* Apply styles for extra-large screens (2xl) */
+@media screen and (min-width: 1536px) {
+  body::before {
+    content: "Current Breakpoint: Double Extra Large (2xl)";
+  }
+}
