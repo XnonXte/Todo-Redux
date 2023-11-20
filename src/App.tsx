@@ -16,12 +16,14 @@ const App = () => {
   }, [todos]);
 
   return (
-    <div className="max-w-[578px] p-4 mx-auto">
-      <Header />
-      <TodoList />
-      <TodoEntry />
-      <TodoStatus />
-      <Footer />
+    <div className="text-white bg-blue-800 font-poppins">
+      <div className="max-w-[578px] p-4 mx-auto">
+        <Header />
+        <TodoList />
+        <TodoEntry />
+        <TodoStatus />
+        <Footer />
+      </div>
     </div>
   );
 };
