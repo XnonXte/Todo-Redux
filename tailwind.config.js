@@ -2,10 +2,11 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    fontFamily: {
-      display: ["Roboto", "sans-serif"],
-      body: ["Montserrat", "sans-serif"],
-    },
+    extend: {
+      fontFamily: {
+        poppins: ["Poppins", "sans-serif"]
+      }
+    }
   },
   plugins: [],
 };

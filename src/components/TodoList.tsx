@@ -1,54 +1,55 @@
 import { useSelector } from "react-redux";
+import { Todo } from "../types/TodoType";
 import { useDispatch } from "react-redux";
 import { removeTodo, updateTodo } from "../features/todos";
-import { Todo } from "../types/TodoType";
 
 const TodoList = () => {
-  const todos = useSelector((state) => state.todos.value);
+  const todos: Todo[] = useSelector((state) => state.todos.value);
   const dispatch = useDispatch();
 
+  function handleRemoveTodo(id: string) {
+    dispatch(removeTodo({ id }));
+  }
+
   return (
-    <section className="my-4 mx-2">
-      <div>
-        {todos.map((todo: Todo, index: number) => {
-          const { title, message, id, finished } = todo;
+    <section className="mb-6">
+      <ul className="flex flex-col gap-3">
+        {todos.map((todo) => {
+          const { checked, content, id } = todo;
+
           return (
-            <div className="flex items-center" key={id}>
-              <span className="mr-2 text-white bg-slate-500 p-2 rounded-full">
-                {/* Janky ass list numbering system. */}
-                {index + 1}.
-              </span>
-
-              <div className="w-full">
-                <div className="font-bold">{title}</div>
-                <span>{message}</span>
+            <li
+              key={id}
+              className="flex items-center justify-between p-4 bg-blue-900 rounded-xl hover:bg-blue-950"
+            >
+              <div className="space-x-3">
+                <input
+                  type="checkbox"
+                  name="finished"
+                  id="finished"
+                  checked={checked}
+                  onChange={(e) => {
+                    dispatch(updateTodo({ id, checked: e.target.checked }));
+                  }}
+                />
+                <label
+                  htmlFor="finished"
+                  className={`text-sm ${checked ? "line-through" : ""}`}
+                >
+                  {content}
+                </label>
               </div>
-
-              <input
-                type="checkbox"
-                name="finished"
-                id={`finished-${id}`}
-                className="mr-1"
-                onChange={(e) => {
-                  dispatch(updateTodo({ id, finished: e.target.checked }));
-                }}
-                checked={finished}
-              />
-              <label htmlFor={`finished-${id}`}>Finished</label>
-
               <button
                 type="button"
-                className="ml-2 text-white bg-red-400 hover:bg-red-500 p-2 rounded-xl"
-                onClick={() => {
-                  dispatch(removeTodo({ id }));
-                }}
+                onClick={() => handleRemoveTodo(id)}
+                className="text-neutral-400 hover:text-white"
               >
-                Remove
+                <i className="text-lg bi bi-trash"></i>
               </button>
-            </div>
+            </li>
           );
         })}
-      </div>
+      </ul>
     </section>
   );
 };

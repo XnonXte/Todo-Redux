@@ -1,21 +1,27 @@
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
-import Form from "./components/Form";
-import TodoList from "./components/TodoList";
 import { Todo } from "./types/TodoType";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import TodoList from "./components/TodoList";
+import TodoEntry from "./components/TodoEntry";
+import TodoStatus from "./components/TodoStatus";
 
 const App = () => {
-  const todos = useSelector((state) => state.todos.value) as Todo[];
+  const todos: Todo[] = useSelector((state) => state.todos.value);
 
   useEffect(() => {
     localStorage.setItem("TODOS", JSON.stringify(todos));
   }, [todos]);
 
   return (
-    <>
+    <div className="max-w-[578px] p-4 mx-auto">
+      <Header />
       <TodoList />
-      <Form />
-    </>
+      <TodoEntry />
+      <TodoStatus />
+      <Footer />
+    </div>
   );
 };
 
