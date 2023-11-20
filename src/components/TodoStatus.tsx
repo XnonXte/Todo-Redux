@@ -1,8 +1,9 @@
 import { useSelector } from "react-redux";
-import { Todo } from "../types/TodoType";
+import { Todo } from "../../types/TodoType";
+import { Store } from "../features/store";
 
 const TodoStatus = () => {
-  const todos: Todo[] = useSelector((state) => state.todos.value);
+  const todos: Todo[] = useSelector((state: Store) => state.todos.value);
   const completedCount = todos.reduce(
     (count, todo) => (todo.checked ? count + 1 : count),
     0

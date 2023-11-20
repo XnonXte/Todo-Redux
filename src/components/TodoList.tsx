@@ -1,10 +1,11 @@
 import { useSelector } from "react-redux";
-import { Todo } from "../types/TodoType";
+import { Todo } from "../../types/TodoType";
 import { useDispatch } from "react-redux";
+import { Store } from "../features/store";
 import { removeTodo, updateTodo } from "../features/todos";
 
 const TodoList = () => {
-  const todos: Todo[] = useSelector((state) => state.todos.value);
+  const todos: Todo[] = useSelector((state: Store) => state.todos.value);
   const dispatch = useDispatch();
 
   function handleRemoveTodo(id: string) {
