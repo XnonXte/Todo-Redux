@@ -1,3 +1,3 @@
-# Todo App with Redux and React
+# XnonTodo
 
-This is a simple todo app I made utilizing `@reduxjs/toolkit` and `react-redux`.
+This is a simple todo app I made utilizing React, Redux, and Tailwind.
