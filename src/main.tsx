@@ -1,21 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.tsx";
-import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
-import todosSlice from "./features/todos";
+import { store } from "./features/store.ts";
 import "./styles/main.css";
 import "./styles/scrollbar.css";
 import "bootstrap-icons/font/bootstrap-icons.min.css";
 
 // ! development only.
 // import "./styles/breakpoints.css";
-
-const store = configureStore({
-  reducer: {
-    todos: todosSlice,
-  },
-});
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>

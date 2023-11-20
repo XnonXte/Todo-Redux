@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { Todo } from "../types/TodoType";
+import { Todo } from "../../types/TodoType";
 
 const todosLocal = JSON.parse(localStorage.getItem("TODOS") || "[]") as Todo[];
 
