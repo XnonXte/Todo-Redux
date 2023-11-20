@@ -5,6 +5,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
 import todosSlice from "./features/todos";
 import "./styles/main.css";
+import "./styles/scrollbar.css";
 import "bootstrap-icons/font/bootstrap-icons.min.css";
 
 // ! development only.

@@ -14,10 +14,9 @@ const todosSlice = createSlice({
         value: [
           ...state.value,
           {
-            title: action.payload.title,
-            message: action.payload.message,
+            content: action.payload.content,
             id: action.payload.id,
-            finished: action.payload.finished,
+            checked: action.payload.checked,
           },
         ],
       };
@@ -27,7 +26,7 @@ const todosSlice = createSlice({
       return {
         value: state.value.map((todo) =>
           todo.id === action.payload.id
-            ? { ...todo, finished: action.payload.finished }
+            ? { ...todo, checked: action.payload.checked }
             : todo
         ),
       };
@@ -38,16 +37,9 @@ const todosSlice = createSlice({
         value: state.value.filter((todo) => todo.id !== action.payload.id),
       };
     },
-
-    clearTodo: () => {
-      return {
-        value: [] as Todo[],
-      };
-    },
   },
 });
 
-export const { addTodo, clearTodo, removeTodo, updateTodo } =
-  todosSlice.actions;
+export const { addTodo, removeTodo, updateTodo } = todosSlice.actions;
 
 export default todosSlice.reducer;

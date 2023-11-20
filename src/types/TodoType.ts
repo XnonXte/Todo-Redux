@@ -1,6 +1,5 @@
 export type Todo = {
-  title: string;
-  message: string;
+  content: string;
   id: string;
-  finished: boolean;
+  checked: boolean;
 };
